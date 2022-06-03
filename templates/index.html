@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Filipetti IoT Energy Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Filippetti IoT Energy Prediction</h1>
+     <h3> Enter the Following Values to Predict Energy Consumption</h3>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Year" placeholder="Year" required="required" />
+        <input type="text" name="Month" placeholder="Month" required="required" />
+		<input type="text" name="day" placeholder="day" required="required" />
+        <input type="text" name="hours" placeholder="hours" required="required" />
+        <input type="text" name="minutes" placeholder="minutes" required="required" />
+		<input type="text" name="Day_of_Week" placeholder="Day_of_Week" required="required" />
+        <input type="text" name="weekend" placeholder="weekend" required="required" />
+
+        <button type="submit" class="btn">Predict</button>
+    </form>
+
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
